@@ -4,6 +4,57 @@ Scala SDK: whatever scala installed
 --> right click > run
 IF project not detected as Scala SBT: [Scala Installation MISSING](https://www.youtube.com/watch?v=jGMDPbwFAvA)
 
+Add JAVA_HOME
+1. java -version
+2. verify java location (C:\Program Files\Java\jre1.8.0_281)
+3. create JAVA_HOME at environment variables
+4. add o valor (C:\Program Files\Java\jre1.8.0_281\bin) na variável PATH
+
+1. create sample project: ``` sbt new scala/scala-seed.g8 ```
+1. Access project where ```build.sbt``` file is
+1. run: ```sbt``` and run ```run``` inside sbt
+
+
+File SBT (windows):
+   ```build.sbt
+      import Dependencies._
+
+      ThisBuild / scalaVersion     := "2.13.4"
+      ThisBuild / version          := "0.1.0-SNAPSHOT"
+      ThisBuild / organization     := "com.example"
+      ThisBuild / organizationName := "example"
+      
+      lazy val root = (project in file("."))
+              .settings(
+                 name := "Scala Seed Project",
+                 libraryDependencies += scalaTest % Test
+              )
+   ```
+
+Pasta "project":
+1. build.properties: versão do sbt
+1. plugins.sbt: dependências
+   1. -> Seq = sequencial (fila) --> são projetos maven que ele puxa aqui
+1. 
+
+# At root of Waves Project
+Run: sbt checkPR    
+**Known-peers é a rede, mudando o IP ele começa a minerar de outra rede**    
+--> O BD da blockchain é um arquivo na pasta Users
+--> Ao Buildar 
+
+#(ERROR) Cada pasta do repositório Waves é um projeto
+##(ERROR) pasta node é a blockchain em si
+1. entrar na pasta do Waves, entrar na pasta node
+1. sbt "run waves-sample.conf"
+--> O intellij usa a pasta em que foi aberto o projeto para saber se está em um projeto para ser compilado
+   pasta waves raiz só serve para git commit, cada folder é uma coisa a ser buildada em separado
+--> para montar debug:
+   1. add config
+   1. sbt Task: params = run waves-sample.conf
+   1. 
+
+
 # Scala Essentials
 
 1. Herdar o método main para printar: ``` extends App ```
